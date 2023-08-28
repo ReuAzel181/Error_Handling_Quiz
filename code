@@ -1,0 +1,24 @@
+lives = 3
+ans = [2, 4, 6]
+questions = ["What is 1 + 1: ", "What is 2 + 2: ", "What is 3 + 3: "]
+
+while lives != 0 and questions:
+    current_question = questions[0]
+    current_answer = ans[0]
+    try:
+        user_answer = int(input(current_question))
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        continue
+
+    if user_answer != current_answer:
+        print("You are wrong")
+        lives -= 1
+    else:
+        questions.pop(0)
+        ans.pop(0)
+
+if lives == 0:
+    print("Game Over!")
+else:
+    print("Congratulations! You answered all questions correctly!")
